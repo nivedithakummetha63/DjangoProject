@@ -1,9 +1,5 @@
 import os
 from pathlib import Path
-from dotenv import load_dotenv
-
-# Load environment variables (only needed for local testing)
-load_dotenv()
 
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
