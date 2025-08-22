@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-2xl">
+
+    <div class="flex items-center space-x-6 mb-6">
+      <img src="{{ profile.profile_pic.url }}" alt="Profile Picture" class="w-20 h-20 rounded-full object-cover border-2 border-gray-300">
+      <div>
+        <h2 class="text-2xl font-bold">Hi, {{ profile.user.first_name }} 👋</h2>
+        <p class="text-gray-600">@{{ profile.user.username }}</p>
+        <p class="text-sm text-gray-500">{{ profile.user.email }}</p>
+      </div>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" class="space-y-6">
+      {% csrf_token %}
+
+      <div>
+        <label class="block mb-1 font-medium">Bio</label>
+        {{ form.bio }}
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium">Age</label>
+        {{ form.age }}
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium">Profile Picture</label>
+        {{ form.profile_pic }}
+      </div>
+      <div style="position: absolute; top: 20px; right: 30px;">
+  <a href="{% url 'home' %}" style="background-color: #4f46e5; color: white; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: bold;">
+    🏠 Back to Home
+  </a>
+</div>
+
+
+      <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-xl hover:bg-blue-600 transition">
+        Save Changes
+      </button>
+    </form>
+  </div>
+</body>
+</html>

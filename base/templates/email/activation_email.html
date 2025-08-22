@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account Activation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fefefe;
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border: 2px solid #00bfa6; /* accent neon border */
+    }
+
+    .email-header {
+      background: linear-gradient(135deg, #00b4db, #0083b0); /* vibrant aqua-blue gradient */
+      color: #ffffff;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .email-header h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .email-body {
+      padding: 30px;
+      color: #333333;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .email-body p {
+      margin: 20px 0;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #ff6f61; /* bright coral */
+      color: #fff;
+      font-weight: bold;
+      padding: 14px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      margin: 25px 0;
+      transition: background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #e94f4f;
+    }
+
+    .email-footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .email-footer a {
+      color: #00bfa6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .email-footer a:hover {
+      text-decoration: underline;
+    }
+
+    a {
+      color: #0083b0;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="email-header">
+      <h1>🎉 WELCOME TO ROOMIE RADAR! 🎉</h1>
+    </div>
+    <div class="email-body">
+      <p>Hey there 👋,</p>
+      <p>
+        Thanks for joining RoomieRadar! You’re one step away from unlocking the roommate-matching magic ✨.
+      </p>
+      <p>
+        Hit the button below to activate your account and get started:
+      </p>
+      <p style="text-align: center;">
+        <a href="{{ activation_link }}" class="cta-button">Activate Account</a>
+      </p>
+      <p>
+        If the button doesn’t work, just copy and paste this link into your browser:
+      </p>
+      <p><a href="{{ activation_link }}">{{ activation_link }}</a></p>
+      <p>
+        Let’s get you matched with someone awesome. 💫
+      </p>
+    </div>
+    <div class="email-footer">
+      <p>Need help? <a href="mailto:support@roomieradar.com">Contact Support</a></p>
+      <p>&copy; 2025 RoomieRadar. All vibes, all rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>

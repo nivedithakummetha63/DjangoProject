@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ user.username }}'s Public Profile</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      padding: 3rem;
+      position: relative;
+    }
+
+    .top-buttons {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      background-color: #7f5af0;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .nav-btn:hover {
+      background-color: #6243d1;
+    }
+
+    .card {
+      background: #fff;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin: 0.5rem 0;
+    }
+
+    p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .message-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background-color: #10b981;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .message-btn:hover {
+      background-color: #059669;
+    }
+  </style>
+</head>
+<body>
+ <div class="card">
+    {% if profile.profile_pic %}
+      <img class="profile-pic" src="{{ profile.profile_pic.url }}" alt="Profile Picture">
+    {% endif %}
+    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+    <p>@{{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Bio:</strong> {{ profile.bio }}</p>
+    <p><strong>Age:</strong> {{ profile.age }}</p>
+
+    <a href="{% url 'chat_view' user.username %}" class="message-btn">💌 Message</a>
+  </div>
+
+</body>
+</html>

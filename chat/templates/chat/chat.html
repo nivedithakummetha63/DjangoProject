@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat with {{ other_user.username }}</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #ece5dd;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #075E54;
+      color: white;
+      padding: 15px;
+    }
+
+    .top-bar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background: #128C7E;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .top-bar a:hover {
+      background: #0a5c4c;
+    }
+
+    .chat-history {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      max-width: 60%;
+      padding: 10px;
+      border-radius: 8px;
+      position: relative;
+      word-wrap: break-word;
+    }
+
+    .sent {
+      align-self: flex-end;
+      background: #dcf8c6;
+    }
+
+    .received {
+      align-self: flex-start;
+      background: white;
+    }
+
+    .timestamp {
+      font-size: 10px;
+      color: gray;
+      margin-top: 4px;
+      text-align: right;
+    }
+
+    .chat-input {
+      background: #f0f0f0;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    textarea {
+      flex: 1;
+      resize: none;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      background: #128C7E;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #075E54;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div>Chat with {{ other_user.username }}</div>
+    <a href="{% url 'inbox' %}">⬅ Back to Inbox</a>
+  </div>
+
+  <div class="chat-history" id="chatHistory">
+    {% for message in messages %}
+      <div class="message {% if message.sender == request.user %}sent{% else %}received{% endif %}">
+        {{ message.body }}
+        <div class="timestamp">{{ message.timestamp|date:"M d, H:i" }}</div>
+      </div>
+    {% empty %}
+      <p>No messages yet.</p>
+    {% endfor %}
+  </div>
+
+  <form method="post" class="chat-input">
+    {% csrf_token %}
+    <textarea name="message" placeholder="Type a message..." required></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+  <script>
+    const chatHistory = document.getElementById("chatHistory");
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+  </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome | RoomieRadar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-image: url("{% static 'images/welcomeimg.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #111827; /* dark text */
+      margin-bottom: 0.5rem;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #333333; /* darker gray */
+      margin-bottom: 2rem;
+      animation: fadeInText 2s ease-in-out;
+    }
+
+    .btn {
+      position: relative;
+      background-color: #6366f1;
+      color: white;
+      padding: 0.8rem 2.2rem;
+      font-size: 1.05rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      overflow: hidden;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+      animation: zoomIn 1.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #4f46e5;
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      transition: width 0.5s ease, height 0.5s ease;
+    }
+
+    .btn:active::after {
+      width: 200%;
+      height: 200%;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 3.2rem;
+      }
+
+      p {
+        font-size: 1.3rem;
+      }
+
+      .btn {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <b><h1>Find Your Perfect Roommate</h1></b>
+  <h2>Discover the ideal roommate to share your space, lifestyle, and vibe.</h2>
+  <a href="{% url 'register' %}" class="btn">Get Started</a>
+</body>
+</html>

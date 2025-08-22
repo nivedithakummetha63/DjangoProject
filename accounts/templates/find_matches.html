@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Find Matches</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .match-card {
+      display: flex;
+      align-items: center;
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .match-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .profile-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ddd;
+      margin-right: 20px;
+    }
+
+    .match-info {
+      flex-grow: 1;
+    }
+
+    .match-info h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #222;
+    }
+
+    .match-info p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .button-group a {
+      text-decoration: none;
+      text-align: center;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
+    }
+
+    .view-btn {
+      background: #5c67f2;
+    }
+
+    .view-btn:hover {
+      background: #3d48db;
+    }
+
+    .message-btn {
+      background: #10b981;
+    }
+
+    .message-btn:hover {
+      background: #0e9e72;
+    }
+
+    .no-matches {
+      text-align: center;
+      color: #666;
+      font-size: 1.1rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <body>
+  <a href="{% url 'home' %}" style="
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: #e0e7ff;
+    color: #4f46e5;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+  ">
+    ⬅️ Back to Home
+  </a>
+
+  <h2>💫 Your Matches</h2>
+
+  {% if matches %}
+    {% for match in matches %}
+      <div class="match-card">
+        <img class="profile-img" src="{{ match.profile.profile_pic.url|default:'/static/images/default.png' }}" alt="Profile Picture">
+
+        <div class="match-info">
+          <h3>{{ match.full_name }} (@{{ match.username }})</h3>
+          <p>Email: {{ match.email }}</p>
+          <p>✨ Match Score: <strong>{{ match.score }}%</strong></p>
+        </div>
+
+        <div class="button-group">
+          <a class="view-btn" href="{% url 'public_profile' match.username %}">👀 View Profile</a>
+          <a class="message-btn" href="{% url 'chat_view' match.username %}">💬 Message</a>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="no-matches">😕 No matches found. Try updating your preferences!</p>
+  {% endif %}
+</body>
