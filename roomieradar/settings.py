@@ -7,7 +7,9 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'l$ei0b66&##a7fl1%rd(mwx*yv#trf*9qb@
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Email verification and site-related
-SITE_URL = 'http://127.0.0.1:8000'
+
+SITE_URL = os.getenv('SITE_URL', 'http://127.0.0.1:8000')
+
 DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.onrender.com']
 
