@@ -12,24 +12,25 @@
 
 <p align="center">
   🔗 <a href="https://roomie-radar-8q2e.onrender.com"><strong>Live Demo</strong></a> •
-  <a href="#features">Features</a> •
-  <a href="#tech-stack">Tech Stack</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#author">Author</a>
+  🎥 <a href="https://drive.google.com/file/d/1drgeIdNdQBZISA0BN1BR_8OZiCobIZNJ/view?usp=sharing"><strong>Demo Video</strong></a> •
+  <a href="#-features">Features</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-installation">Installation</a> •
+  <a href="#-authors">Authors</a>
 </p>
 
 ---
 
-##  Features
+## 🚀 Features
 - 🔐 **Secure Authentication** — Sign up, login, email verification  
 - 👤 **Profile Management** — Bio, profile pic, roommate preferences  
 - 🎯 **Match Suggestions** — Smart matching based on compatibility  
 - 💬 **Messaging System** — Chat between matched roommates  
-- 🤖 **AI Chatbot Assistant** — Friendly guide to help navigate the platform
+- 🤖 **AI Chatbot Assistant** — Friendly guide to help navigate the platform  
 
 ---
 
-##  Tech Stack
+## ⚡ Tech Stack
 | Layer       | Tech Used                     |
 |-------------|-------------------------------|
 | Backend     | Django (Python)               |
@@ -57,8 +58,15 @@
   <img src="screenshots/4.png" alt="RoomieRadar Screenshot 4" width="800"/>
 </p>
 
+---
+##👩‍💻 Authors
 
-##  Installation
+K. Niveditha
+ — Full Stack Developer
+Shaik Heena Parveen
+ — Tester
+
+## 📂 Installation
 ```bash
 # Clone the project
 git clone https://github.com/nivedithakummetha63/DjangoProject.git
