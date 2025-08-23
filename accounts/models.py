@@ -23,7 +23,7 @@ class Profile(BaseModel):
     email_token = models.CharField(max_length=100, null=True, blank=True)
     bio = models.TextField(max_length=500, blank=True, null=True)
     age = models.IntegerField(null=True, blank=True)
-    profile_pic = models.ImageField(upload_to='profile_pics/', default='default/download.png')
+    profile_pic =profile_pic = models.ImageField(upload_to='profile_pics/', default='profile_pics/download.png')
     shipping_address = models.ForeignKey(
         ShippingAddress,
         on_delete=models.CASCADE,
