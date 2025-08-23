@@ -51,20 +51,33 @@
 </p>
 
 <p align="center">
-  <img src="screenshots/3.png" alt="RoomieRadar Screenshot 3" width="800"/>
+  <img src="screenshots/4.png" alt="RoomieRadar Screenshot 3" width="800"/>
 </p>
 
 <p align="center">
-  <img src="screenshots/4.png" alt="RoomieRadar Screenshot 4" width="800"/>
+  <img src="screenshots/3.png" alt="RoomieRadar Screenshot 4" width="800"/>
 </p>
 
 ---
-##👩‍💻 Authors
 
-K. Niveditha
- — Full Stack Developer
-Shaik Heena Parveen
- — Tester
+## 👩‍💻 Authors
+
+<p align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <strong>K. Niveditha</strong><br/>
+        <em>Full Stack Developer</em>
+      </td>
+      <td align="center">
+        <strong>Shaik Heena Parveen</strong><br/>
+        <em>Tester</em>
+      </td>
+    </tr>
+  </table>
+</p>
+
+---
 
 ## 📂 Installation
 ```bash
