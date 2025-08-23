@@ -1,32 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Your Chats</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 p-6">
 
-  <!-- Back to Home button -->
+  <!-- ✅ Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- ✅ Mobile Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="bg-gray-100 p-6 min-h-screen">
+
+  <!-- 🔙 Back to Home -->
   <div class="flex justify-end max-w-2xl mx-auto mb-4">
     <a href="{% url 'home' %}" class="inline-block bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600 transition">
       ⬅ Back to Home
     </a>
   </div>
 
+  <!-- 💬 Page Title -->
   <h1 class="text-3xl font-bold mb-6 text-center text-indigo-700">💬 Your Chats</h1>
 
+  <!-- 💌 Chat List Container -->
   <div class="max-w-2xl mx-auto bg-white p-4 rounded-xl shadow-md space-y-4">
     {% if chat_users %}
       {% for user, latest_message in chat_users.items %}
-        <div class="block border-b border-gray-200 pb-4 hover:bg-gray-50 p-2 rounded-lg transition">
-          <div class="flex items-center justify-between gap-4">
+        <div class="block border-b border-gray-200 pb-4 hover:bg-gray-50 p-2 rounded-lg transition space-y-2">
+          
+          <!-- Chat Entry -->
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            
+            <!-- Profile and Message -->
             <a href="{% url 'chat_view' user.username %}" class="flex items-center gap-3 flex-1">
               <img src="{{ user.profile.profile_pic.url }}" alt="Profile Picture" class="w-12 h-12 rounded-full object-cover border border-indigo-300">
+              
               <div>
-                <p class="font-semibold text-lg text-indigo-600">{{ user.username }}</p>
-                <p class="text-gray-600 text-sm truncate max-w-xs">{{ latest_message.body }}</p>
+                <p class="font-semibold text-lg sm:text-lg text-base text-indigo-600">{{ user.username }}</p>
+                <p class="text-gray-600 text-sm truncate sm:max-w-xs max-w-full">{{ latest_message.body }}</p>
               </div>
             </a>
+
+            <!-- Timestamp & Profile Link -->
             <div class="text-right">
               <p class="text-xs text-gray-400 whitespace-nowrap mb-1">
                 {{ latest_message.timestamp|date:"M d, H:i" }}
@@ -34,11 +50,13 @@
               <a href="{% url 'public_profile' user.username %}" class="text-xs text-indigo-500 hover:underline">View Profile</a>
             </div>
           </div>
+
         </div>
       {% endfor %}
     {% else %}
       <p class="text-center text-gray-500">No conversations yet.</p>
     {% endif %}
   </div>
+
 </body>
 </html>
