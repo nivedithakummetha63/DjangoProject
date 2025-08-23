@@ -8,7 +8,8 @@ from django.contrib.auth.decorators import login_required
 
 from base.emails import account_activation_email
 from .models import Profile, Preferences
-from .forms import ProfileForm, PreferencesForm  # ✅ fixed this import
+from .forms import ProfileForm, PreferencesForm
+
 
 def index(request):
     if request.method == 'POST':
@@ -73,14 +74,13 @@ def register(request):
 
 def activation_email(request, email_token=None):
     try:
-        email_token = request.GET.get('token')
         user_profile = Profile.objects.get(email_token=email_token)
         user_profile.is_email_verified = True
         user_profile.save()
         messages.success(request, 'Email Verified Successfully!')
         return redirect('login')
-    except Exception:
-        return HttpResponse("Invalid email token")
+    except Profile.DoesNotExist:
+        return HttpResponse("Invalid or expired activation link")
 
 
 def logout_user(request):
@@ -112,8 +112,10 @@ def profile_view(request):
     }
     return render(request, 'profile.html', context)
 
+
 def welcome_page(request):
     return render(request, 'welcome.html')
+
 
 def public_profile(request, username):
     user = get_object_or_404(User, username=username)
@@ -129,14 +131,16 @@ def preferences_view(request):
     preferences, created = Preferences.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
-        form = PreferencesForm(request.POST, instance=preferences)  # ✅ use the form
+        form = PreferencesForm(request.POST, instance=preferences)
         if form.is_valid():
             form.save()
             return redirect('preferences')
     else:
-        form = PreferencesForm(instance=preferences)  # ✅ use the form
+        form = PreferencesForm(instance=preferences)
 
     return render(request, 'preferences.html', {'form': form})
+
+
 @login_required
 def find_matches_view(request):
     try:
