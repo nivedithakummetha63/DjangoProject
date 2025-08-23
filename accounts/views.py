@@ -69,7 +69,7 @@ def register(request):
         messages.success(request, 'Account Created. Check your email to verify!')
         return HttpResponseRedirect(request.path_info)
 
-    return render(request, 'registation.html')
+    return render(request, 'registation.html')  # typo: consider renaming to 'registration.html'
 
 
 def activation_email(request):
@@ -86,7 +86,6 @@ def activation_email(request):
         return redirect('login')
     except Profile.DoesNotExist:
         return HttpResponse("Invalid or expired activation link")
-
 
 
 def logout_user(request):
