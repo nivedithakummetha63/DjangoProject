@@ -146,7 +146,6 @@ def preferences_view(request):
     return render(request, 'preferences.html', {'form': form})
 
 
-@login_required
 def find_matches_view(request):
     try:
         current_user = request.user
