@@ -39,14 +39,24 @@
 
 ---
 
-##  Screenshots
+## 📸 Screenshots
+
 <p align="center">
-  <img src="https://via.placeholder.com/800x400.png?text=RoomieRadar+Dashboard" alt="RoomieRadar Dashboard" />
+  <img src="screenshots/1.png" alt="RoomieRadar Screenshot 1" width="800"/>
 </p>
 
-*(Swap this placeholder with your own snazzy screenshots or a GIF.)*
+<p align="center">
+  <img src="screenshots/2.png" alt="RoomieRadar Screenshot 2" width="800"/>
+</p>
 
----
+<p align="center">
+  <img src="screenshots/3.png" alt="RoomieRadar Screenshot 3" width="800"/>
+</p>
+
+<p align="center">
+  <img src="screenshots/4.png" alt="RoomieRadar Screenshot 4" width="800"/>
+</p>
+
 
 ##  Installation
 ```bash
