@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Chat with {{ other_user.username }}</title>
+
+  <!-- ✅ Viewport for Responsive Design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -13,6 +18,7 @@
       height: 100vh;
     }
 
+    /* ✅ Top Bar */
     .top-bar {
       display: flex;
       align-items: center;
@@ -20,6 +26,7 @@
       background: #075E54;
       color: white;
       padding: 15px;
+      flex-shrink: 0;
     }
 
     .top-bar a {
@@ -36,6 +43,7 @@
       background: #0a5c4c;
     }
 
+    /* ✅ Chat History */
     .chat-history {
       flex: 1;
       padding: 15px;
@@ -46,11 +54,13 @@
     }
 
     .message {
-      max-width: 60%;
+      max-width: 90%;
+      width: fit-content;
       padding: 10px;
       border-radius: 8px;
       position: relative;
       word-wrap: break-word;
+      box-sizing: border-box;
     }
 
     .sent {
@@ -70,12 +80,15 @@
       text-align: right;
     }
 
+    /* ✅ Chat Input */
     .chat-input {
       background: #f0f0f0;
       padding: 10px;
       display: flex;
       gap: 10px;
       align-items: center;
+      flex-shrink: 0;
+      box-sizing: border-box;
     }
 
     textarea {
@@ -85,6 +98,8 @@
       border-radius: 5px;
       border: 1px solid #ccc;
       font-size: 14px;
+      min-height: 40px;
+      box-sizing: border-box;
     }
 
     button {
@@ -94,20 +109,42 @@
       padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
+      white-space: nowrap;
     }
 
     button:hover {
       background: #075E54;
     }
+
+    /* ✅ Responsive Styling for Mobile Devices */
+    @media (max-width: 600px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .chat-input {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      textarea,
+      button {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- ✅ Top Navigation -->
   <div class="top-bar">
     <div>Chat with {{ other_user.username }}</div>
     <a href="{% url 'inbox' %}">⬅ Back to Inbox</a>
   </div>
 
+  <!-- ✅ Chat History -->
   <div class="chat-history" id="chatHistory">
     {% for message in messages %}
       <div class="message {% if message.sender == request.user %}sent{% else %}received{% endif %}">
@@ -119,12 +156,14 @@
     {% endfor %}
   </div>
 
+  <!-- ✅ Chat Input -->
   <form method="post" class="chat-input">
     {% csrf_token %}
     <textarea name="message" placeholder="Type a message..." required></textarea>
     <button type="submit">Send</button>
   </form>
 
+  <!-- ✅ Auto-scroll to bottom -->
   <script>
     const chatHistory = document.getElementById("chatHistory");
     chatHistory.scrollTop = chatHistory.scrollHeight;
