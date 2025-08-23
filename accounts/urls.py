@@ -16,7 +16,7 @@ urlpatterns = [
     path('', welcome_page, name='welcome'),
     path('login/', index, name='login'),
     path('register/', register, name='register'),
-    path('accounts/activate/', activation_email, name='activate_email'),  # query param token expected
+    path('accounts/activate/', activation_email, name='activate_email'),  # token passed as query param (?token=...)
     path('home/', home, name='home'),
     path('logout/', logout_user, name='logout'),
     path('profile/', profile_view, name='profile'),
