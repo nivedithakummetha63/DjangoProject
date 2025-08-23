@@ -1,0 +1,101 @@
+1. how to edit profile
+2. edit my profile
+3. change profile picture
+4. figma of the project
+5. where is your figma
+6. show me your figma
+7. design file
+8. change my bio
+9. how to update profile
+10. can i update my profile
+11. how to set preferences
+12. update my preferences
+13. where to find preferences
+14. how to find matches
+15. find me matches
+16. match suggestions?
+17. where is my inbox
+18. can i talk to matches
+19. who created you
+20. can you tell your creators name
+21. what is your tech stack
+22. what backend are you using
+23. how are matches calculated
+24. do you use AI
+25. what is RoomieRadar
+26. what is roomieradar
+27. what do you do
+28. are you a real person
+29. how smart are you
+30. i am a morning person
+31. i stay up late
+32. i like to keep things clean
+33. i don’t mind noise
+34. i need someone quiet
+35. can i set budget range
+36. can i choose gender
+37. tell me a joke
+38. tell me another joke
+39. can you dance
+40. are you single
+41. what's your favorite movie
+42. who’s your favorite superhero
+43. do you sleep
+44. i can't login
+45. my profile won’t update
+46. i can’t find preferences page
+47. matches not loading
+48. messages not sending
+49. what’s the vibe of this app
+50. is it free
+
+51. how many roommates can i match
+52. how often are matches updated
+53. can i unmatch someone
+54. can i delete my account
+55. how do i view other profiles
+56. can i view someone’s preferences
+57. where is the dashboard
+58. how to go home
+59. how to logout
+60. how to register
+61. where is login page
+62. how to activate my account
+63. can i reset password
+64. i forgot my password
+65. what matching logic do you use
+66. what have you used in preferences logic
+67. what tech have you used in backend
+68. what logic is used for matches
+69. do you use machine learning
+70. what db are you using
+71. do you store chats
+72. how do you handle security
+73. how are chats built
+74. can you show my match score
+75. are you Gen Z
+76. what's your vibe
+77. are you cool
+78. are you sassy
+79. what’s your mood today
+80. can you sing
+81. wanna be my roomie
+82. can we vibe check
+83. do you like plants
+84. what’s your fav roommate snack
+85. i can’t see profile image
+86. image upload not working
+87. preferences not saving
+88. messages page is blank
+89. can't see any matches
+90. how to search for roommates
+91. how to report a user
+92. can i block someone
+93. app looks weird on phone
+94. site is slow
+95. what’s the best way to get matches
+96. how to make my profile stand out
+97. what’s a good bio
+98. can i filter matches
+99. how often should i check matches
+100. how to make friends
