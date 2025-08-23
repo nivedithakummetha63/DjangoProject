@@ -72,7 +72,12 @@ def register(request):
     return render(request, 'registation.html')
 
 
-def activation_email(request, email_token=None):
+def activation_email(request):
+    email_token = request.GET.get('token')  # get token from query param
+    
+    if not email_token:
+        return HttpResponse("No activation token provided.")
+    
     try:
         user_profile = Profile.objects.get(email_token=email_token)
         user_profile.is_email_verified = True
@@ -81,6 +86,7 @@ def activation_email(request, email_token=None):
         return redirect('login')
     except Profile.DoesNotExist:
         return HttpResponse("Invalid or expired activation link")
+
 
 
 def logout_user(request):
